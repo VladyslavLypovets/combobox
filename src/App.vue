@@ -29,6 +29,7 @@ const updateModelValueHandler = () => {
 <style lang="scss">
 .container {
   width: 1240px;
+  max-width: 100%;
   margin: 0 auto;
 }
 </style>

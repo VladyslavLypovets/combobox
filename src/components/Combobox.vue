@@ -58,7 +58,7 @@
 <script lang="ts" setup>
 import { Item } from '../items';
 import { VueDraggable } from 'vue-draggable-plus';
-import { ref, computed, defineProps, defineEmits } from 'vue';
+import { ref, computed, defineEmits } from 'vue';
 
 
 const props = defineProps({
@@ -103,9 +103,10 @@ const closeHandle = (id: number) => {
 };
 
 const searchUpdateHandle = () => {
+  const searchStr = search.value.toLocaleLowerCase()
   filteredItems.value = props.items.filter(item => {
-    const isMatchTitle = item.title.includes(search.value);
-    const isMatchWithTags = !!item.tags?.find(tag => tag.includes(search.value));
+    const isMatchTitle = item.title.toLocaleLowerCase().includes(searchStr);
+    const isMatchWithTags = !!item.tags?.find(tag => tag.toLocaleLowerCase().includes(searchStr));
     return isMatchTitle || isMatchWithTags;
   });
 };
