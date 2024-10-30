@@ -8,6 +8,7 @@
         @update:modelValue="searchUpdateHandle"
         class="v-combobox"
         :hide-details="true"
+        placeholder="Type to search"
       >
         <template #default>
           <div class="current" @click.stop @mousedown.stop>
@@ -37,7 +38,7 @@
     <v-menu
       activator="parent"
       :close-on-content-click="false"
-      :max-height="240"
+      :max-height="320"
       v-model="menu"
       v-if="computedItems.length"
     >
@@ -55,9 +56,6 @@
         </v-list>
       </v-menu>
   </div>
-  <v-combobox placeholder="test" :items="items">
-
-  </v-combobox>
 </template>
 
 <script lang="ts" setup>
